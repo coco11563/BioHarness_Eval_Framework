@@ -29,12 +29,16 @@ def test_subpackages_import() -> None:
 
 
 def test_cli_version() -> None:
+    """argparse's built-in --version action raises SystemExit(0)."""
+    import pytest
+
     from framework_eval.cli.main import main
 
     buf = io.StringIO()
     with redirect_stdout(buf):
-        rc = main(["--version"])
-    assert rc == 0
+        with pytest.raises(SystemExit) as exc:
+            main(["--version"])
+    assert exc.value.code == 0
     assert buf.getvalue().strip()
 
 
