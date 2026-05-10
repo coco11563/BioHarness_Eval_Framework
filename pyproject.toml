@@ -96,8 +96,10 @@ files                = ["src/framework_eval"]
 [tool.pytest.ini_options]
 testpaths       = ["tests"]
 addopts         = "-ra --strict-markers"
-asyncio_mode    = "auto"
 markers = [
   "slow: integration tests that hit external services",
-  "live: tests that require the BYO inference stack",
+  "live: tests that require the user-provided inference stack",
 ]
+
+[tool.pytest_asyncio]
+asyncio_mode = "auto"
