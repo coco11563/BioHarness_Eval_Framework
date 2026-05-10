@@ -49,10 +49,8 @@ dev            = [
 [project.scripts]
 framework-eval = "framework_eval.cli:main"
 
-# In-tree methods will be registered as entry points starting in A8 (sample
-# `no-context-llm`). Keep this table empty until the implementing module ships
-# so installs don't expose a broken target.
 [project.entry-points."framework_eval.methods"]
+no-context-llm = "framework_eval.methods.no_context_llm:NoContextLLM"
 
 [project.urls]
 Homepage   = "https://github.com/coco11563/XCompass_Eval_Framework"
