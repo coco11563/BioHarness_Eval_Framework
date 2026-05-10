@@ -83,15 +83,22 @@ class PerTypeAggregate:
 def aggregate_per_type(
     method: str,
     config: str,
-    items: Iterable[Item],
+    items: Iterable[Item] | None,
     results: Iterable[EvalResult],
 ) -> list[PerTypeAggregate]:
-    """One row per question type observed in the items."""
-    items_by_id = {it.id: it for it in items}
+    """One row per question type.
+
+    If ``items`` is provided, results are intersected with the item id
+    set (useful when a runner produced extra rows that should be ignored).
+    If ``items`` is None or empty, every result is grouped by its own
+    ``question_type``.
+    """
+    items_by_id = {it.id: it for it in items} if items else None
     by_type: dict[str, list[EvalResult]] = {}
     for r in results:
-        if r.item_id in items_by_id:
-            by_type.setdefault(r.question_type, []).append(r)
+        if items_by_id is not None and r.item_id not in items_by_id:
+            continue
+        by_type.setdefault(r.question_type, []).append(r)
 
     out: list[PerTypeAggregate] = []
     for qtype in sorted(by_type):

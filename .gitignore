@@ -30,8 +30,13 @@ htmlcov/
 
 # Local datasets (must be downloaded; do not commit)
 data/
-output/
 .cache/huggingface/
+
+# `output/` is generally user-runs (do not commit), but we ship the
+# canonical headline run snapshot under output/v14-cascade-dual-rerank-grounded/
+# so that verify.py works out of the box. Ignore everything else.
+output/*
+!output/v14-cascade-dual-rerank-grounded/
 
 # Local secrets
 .env

@@ -71,9 +71,4 @@ jobs:
           python-version: "3.11"
       - run: pip install -e ".[dev]"
       - name: offline reproducibility gate
-        run: |
-          if [ -f verify.py ]; then
-            python verify.py
-          else
-            echo "verify.py not yet present (pre-A9); skipping"
-          fi
+        run: python verify.py
