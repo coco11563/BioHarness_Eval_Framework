@@ -36,8 +36,7 @@ def _cmd_run(args: argparse.Namespace) -> int:
     from framework_eval.runner import RunnerConfig, run, write_summary
 
     method_cls = load_method(args.method)
-    method = method_cls()
-    method_name = getattr(method, "name", args.method)
+    method_name = getattr(method_cls, "name", args.method)
 
     out_dir = Path(args.output)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -57,6 +56,10 @@ def _cmd_run(args: argparse.Namespace) -> int:
         if args.limit:
             items = items[: args.limit]
 
+        # Construct a fresh method instance per dataset so that the
+        # runner's aclose() at the end of each dataset cannot leave a
+        # stale (closed) client for the next dataset.
+        method = method_cls()
         out_path = out_dir / spec.legacy_run_basename
         runner_cfg = RunnerConfig(
             method_name=method_name,
