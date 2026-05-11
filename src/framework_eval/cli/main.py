@@ -41,7 +41,10 @@ def _cmd_run(args: argparse.Namespace) -> int:
     out_dir = Path(args.output)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    evaluator = MetricsEvaluator()
+    # Auto-enable the embedding-similarity matcher when an embedding
+    # endpoint is configured via FRAMEWORK_EMBED_URL; otherwise falls
+    # back to deterministic exact + substring matching only.
+    evaluator = MetricsEvaluator.from_env()
 
     for raw_cfg in args.datasets:
         cfg = normalise_config_name(raw_cfg)
