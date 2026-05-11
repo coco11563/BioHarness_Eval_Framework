@@ -1,2 +1,2 @@
 method,config,question_type,n_items,binary_accuracy,continuous_mean
-v14-cascade-dual-rerank-grounded,medmcqa,mcq,4183,0.748745,0.748745
+pipeline,medmcqa,mcq,4183,0.748745,0.748745

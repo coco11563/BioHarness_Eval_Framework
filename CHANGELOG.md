@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   CI workflow, pre-commit configuration.
 
 ### Notes
-- Headline run snapshot is `v14-cascade-dual-rerank-grounded`
+- Headline run snapshot is `pipeline`
   (binary accuracy 0.766035 / continuous mean 0.691446 on 19,302 items).
 - Source dataset pinned to HF revision
   `aac4e1a4c5e6481b0525b803414ba794117599ca`.

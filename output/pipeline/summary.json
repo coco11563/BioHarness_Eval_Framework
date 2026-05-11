@@ -1,5 +1,5 @@
 {
-  "method": "v14-cascade-dual-rerank-grounded",
+  "method": "pipeline",
   "total": 19302,
   "correct": 14786,
   "accuracy": "76.6%"

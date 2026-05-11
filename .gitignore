@@ -33,10 +33,10 @@ data/
 .cache/huggingface/
 
 # `output/` is generally user-runs (do not commit), but we ship the
-# canonical headline run snapshot under output/v14-cascade-dual-rerank-grounded/
-# so that verify.py works out of the box. Ignore everything else.
+# canonical headline run snapshot under output/pipeline/ so that verify.py
+# works out of the box. Ignore everything else.
 output/*
-!output/v14-cascade-dual-rerank-grounded/
+!output/pipeline/
 
 # Local secrets
 .env
