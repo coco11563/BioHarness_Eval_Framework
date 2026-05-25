@@ -1,0 +1,2 @@
+method,config,question_type,n_items,binary_accuracy,continuous_mean
+pipeline,pubmedqa_pqal_test,yesno,500,0.764000,0.764000

@@ -1,0 +1,2 @@
+method,config,question_type,n_items,binary_accuracy,continuous_mean
+pipeline,medqa_taiwan,mcq,1413,0.893135,0.893135
