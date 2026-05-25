@@ -29,6 +29,17 @@ from framework_eval.loader.jsonl import load_config
 
 DEFAULT_REPO_ID = "Shaow/GeneKnowledgeEval"
 
+# Provenance side-table: maps a resolved snapshot path (str) -> (revision,
+# source). We cannot stash this on the Path object itself because pathlib's
+# ``PosixPath`` defines ``__slots__`` and therefore has no ``__dict__`` on
+# Python 3.12+, so attribute assignment raises ``AttributeError``.
+_RESOLVED_REVISIONS: dict[str, tuple[str, str]] = {}
+
+
+def resolved_revision(path: Path) -> tuple[str, str] | None:
+    """Return the ``(revision, source)`` recorded for a snapshot path, if any."""
+    return _RESOLVED_REVISIONS.get(str(path))
+
 
 def _candidate_manifest_paths() -> list[Path]:
     """Common locations a caller's MANIFEST.toml might live."""
@@ -98,8 +109,9 @@ def snapshot_dataset(
         token=token,
     )
     path = Path(local_path)
-    # Stash provenance for callers that want to log or assert.
-    path.__dict__["_resolved_revision"] = (resolved, source)  # type: ignore[attr-defined]
+    # Stash provenance for callers that want to log or assert. ``Path`` has no
+    # ``__dict__`` on py3.12+, so keep it in a side-table keyed by path.
+    _RESOLVED_REVISIONS[str(path)] = (resolved, source)
     return path
 
 

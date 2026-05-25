@@ -9,6 +9,7 @@ dist/
 
 # Virtual envs
 .venv/
+.venv312/
 venv/
 env/
 # `.python-version` is committed as a runtime hint; do not ignore it.
@@ -37,6 +38,8 @@ data/
 # works out of the box. Ignore everything else.
 output/*
 !output/pipeline/
+# ad-hoc evaluation runs (e.g. baseline sweeps); not part of the repo
+runs/
 
 # Local secrets
 .env
