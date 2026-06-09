@@ -36,4 +36,4 @@ def test_verify_print_manifest_id() -> None:
         text=True,
     )
     assert result.returncode == 0
-    assert result.stdout.strip().startswith("{framework}-19302-")
+    assert result.stdout.strip().startswith("bioHarness-19302-")

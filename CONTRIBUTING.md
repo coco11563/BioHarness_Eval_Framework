@@ -1,4 +1,4 @@
-# Contributing to {framework}
+# Contributing to bioHarness
 
 Thank you for your interest in contributing.
 

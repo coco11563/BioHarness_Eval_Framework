@@ -1,4 +1,4 @@
-"""Reproducibility gate for {framework}.
+"""Reproducibility gate for bioHarness.
 
 Two operating modes:
 
@@ -351,7 +351,7 @@ def _verify_live(_manifest: dict) -> list[str]:
         "  --live mode requires the user-provided infrastructure documented "
         "in docs/infra.md (LLM, embedding, rerank, Qdrant, Postgres). The "
         "headline method itself ships in the companion repository "
-        "https://github.com/coco11563/XCompass_Chi; install it, expose its "
+        "https://github.com/coco11563/bioHarness; install it, expose its "
         "framework_eval.methods entry point, and re-run with the `--live` "
         "flag."
     )
@@ -398,7 +398,7 @@ def main(argv: list[str] | None = None) -> int:
         print(manifest.get("manifest_id", "unknown"))
         return 0
 
-    print(f"{{framework}} verify.py — manifest {manifest['manifest_id']}")
+    print(f"bioHarness verify.py — manifest {manifest['manifest_id']}")
     print(f"  run id          ........ {manifest['run']['method_id']}")
     print(f"  total items     ........ {manifest['run']['total_items']}")
 
