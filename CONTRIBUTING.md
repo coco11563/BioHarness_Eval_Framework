@@ -5,8 +5,8 @@ Thank you for your interest in contributing.
 ## Development setup
 
 ```bash
-git clone https://github.com/coco11563/XCompass_Eval_Framework.git
-cd XCompass_Eval_Framework
+git clone https://github.com/coco11563/bioharness_eval_framework.git
+cd bioharness_eval_framework
 python -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
 pre-commit install
@@ -68,6 +68,6 @@ if you trip it, rephrase rather than suppress the check.
 
 ## Reporting issues
 
-Open an issue at <https://github.com/coco11563/XCompass_Eval_Framework/issues>
+Open an issue at <https://github.com/coco11563/bioharness_eval_framework/issues>
 including the failing command, full traceback, OS / Python version, and
 manifest id (`framework-eval verify --print-manifest-id`).

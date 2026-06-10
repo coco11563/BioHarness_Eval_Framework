@@ -43,8 +43,8 @@ contract that they will respect is already frozen in `MANIFEST.toml`.
 ### 1. Install
 
 ```bash
-git clone https://github.com/coco11563/XCompass_Eval_Framework.git
-cd XCompass_Eval_Framework
+git clone https://github.com/coco11563/bioharness_eval_framework.git
+cd bioharness_eval_framework
 python -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
 ```
@@ -240,7 +240,7 @@ implementation and `docs/plugins.md` for the full protocol contract.
 ## Repository layout
 
 ```
-XCompass_Eval_Framework/
+bioharness_eval_framework/
 ├── MANIFEST.toml                 # frozen reproducibility contract
 ├── README.md
 ├── LICENSE
@@ -302,4 +302,4 @@ Apache-2.0.
 ## Contact
 
 Issues + PRs welcome at
-<https://github.com/coco11563/XCompass_Eval_Framework/issues>.
+<https://github.com/coco11563/bioharness_eval_framework/issues>.

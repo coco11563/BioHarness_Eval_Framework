@@ -53,9 +53,9 @@ framework-eval = "framework_eval.cli:main"
 no-context-llm = "framework_eval.methods.no_context_llm:NoContextLLM"
 
 [project.urls]
-Homepage   = "https://github.com/coco11563/XCompass_Eval_Framework"
-Repository = "https://github.com/coco11563/XCompass_Eval_Framework"
-Issues     = "https://github.com/coco11563/XCompass_Eval_Framework/issues"
+Homepage   = "https://github.com/coco11563/bioharness_eval_framework"
+Repository = "https://github.com/coco11563/bioharness_eval_framework"
+Issues     = "https://github.com/coco11563/bioharness_eval_framework/issues"
 Dataset    = "https://huggingface.co/datasets/Shaow/GeneKnowledgeEval"
 
 [tool.hatch.build.targets.wheel]
