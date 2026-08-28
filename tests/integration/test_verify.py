@@ -24,7 +24,7 @@ def test_verify_offline_passes() -> None:
     )
     assert "PASS" in result.stdout
     assert "byte-equal ok" in result.stdout
-    assert "evaluator score ........ binary=0.766035" in result.stdout
+    assert "evaluator score ........ binary=0.712578" in result.stdout
 
 
 def test_verify_print_manifest_id() -> None:
@@ -36,4 +36,4 @@ def test_verify_print_manifest_id() -> None:
         text=True,
     )
     assert result.returncode == 0
-    assert result.stdout.strip().startswith("bioHarness-19302-")
+    assert result.stdout.strip().startswith("bioHarness-21752-")

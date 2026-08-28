@@ -1,6 +1,6 @@
 {
   "method": "pipeline",
-  "total": 19302,
-  "correct": 14786,
-  "accuracy": "76.6%"
+  "total": 21752,
+  "correct": 15500,
+  "accuracy": "71.3%"
 }
