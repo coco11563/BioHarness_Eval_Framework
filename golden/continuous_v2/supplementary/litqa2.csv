@@ -1,0 +1,2 @@
+method,config,n_items,binary_accuracy,continuous_mean,delta_pp
+pipeline,litqa2,199,0.618090,0.618090,0.000000

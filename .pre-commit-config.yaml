@@ -8,7 +8,8 @@ repos:
       - id: check-toml
       - id: check-added-large-files
         # The canonical run snapshot under output/pipeline/ ships per-item
-        # records for all 21,752 items; the largest (bioasq.jsonl) is ~4.4 MB.
+        # records for all 21,752 items plus the 199-item LitQA2 supplement;
+        # the largest file (bioasq.jsonl) is ~4.5 MB.
         args: [--maxkb=5120]
 
   - repo: https://github.com/astral-sh/ruff-pre-commit

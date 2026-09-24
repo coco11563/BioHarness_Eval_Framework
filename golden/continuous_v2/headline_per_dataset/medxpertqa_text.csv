@@ -1,2 +1,2 @@
 method,config,question_type,n_items,binary_accuracy,continuous_mean
-pipeline,medxpertqa_text,mcq,2450,0.291429,0.291429
+pipeline,medxpertqa_text,mcq,2450,0.371020,0.371020

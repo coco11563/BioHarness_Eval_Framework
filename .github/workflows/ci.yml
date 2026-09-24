@@ -70,5 +70,5 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install -e ".[dev]"
-      - name: offline reproducibility gate
-        run: python verify.py
+      - name: offline reproducibility gate (headline + legacy protocols)
+        run: python verify.py --protocol all

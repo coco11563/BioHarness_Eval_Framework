@@ -57,10 +57,18 @@ def test_manifest_arithmetic() -> None:
     ds_lines = sum(f["lines"] for f in data["dataset"]["files"])
     assert ds_lines == data["dataset"]["total_lines"] == 21924
 
+    supplementary = {s["config"] for s in data["supplementary"]}
+    assert supplementary == {"litqa2"}
     run_lines = sum(
-        f["lines"] for f in data["run"]["files"] if f["config"] != "_summary"
+        f["lines"] for f in data["run"]["files"]
+        if f["config"] != "_summary" and f["config"] not in supplementary
     )
     assert run_lines == data["run"]["total_items"] == 21752
+    # LitQA2 is supplementary: never in name_map, so never pooled.
+    assert "litqa2" not in {e["hf_config"] for e in data["name_map"]}
+    # [run] restates the headline protocol's numbers.
+    assert data["run"]["continuous_mean"] == data["continuous_v2"]["continuous_mean"]
+    assert data["run"]["binary_accuracy"] == data["continuous_v2"]["binary_accuracy"]
 
     delta = data["dataset"]["run_subset_delta"]
     assert delta["delta_lines"] == 172
